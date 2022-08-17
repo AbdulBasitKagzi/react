@@ -1,14 +1,11 @@
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello AbdulBasit</h1>
-      <ExpenseItem
-        expenseDate={new Date(2022, 7, 17)}
-        expenseTitle={"Bike Insurance"}
-        expensePrice={3000}
-      />
+    <div>
+      <NewExpense />
+      <Expenses />;
     </div>
   );
 }
