@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './Button.css';
+// css is applied with the help of css modules
+// for css modules to work filename should include module in it, for eg: button.module.css
+import styles from "./Button.module.css";
+// import "./Button.css";
 
-const Button = props => {
+const Button = (props) => {
   return (
-    <button type={props.type} className="button" onClick={props.onClick}>
+    // and we need to add styles before the classname
+    // classname should be added as below --
+    <button type={props.type} className={styles.button} onClick={props.onClick}>
       {props.children}
     </button>
   );
