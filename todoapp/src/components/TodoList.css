@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.task {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
