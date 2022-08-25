@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 import classes from "./MealItemForm.module.css";
 
-function MealItemform() {
+function MealItemform(props) {
   const onSubmitHandler = (e) => {
     e.preventDefault();
   };
@@ -11,7 +11,7 @@ function MealItemform() {
       <Input
         label="Amount"
         input={{
-          id: "amount",
+          id: "amount_" + props.id,
           type: "number",
           min: "1",
           max: "5",

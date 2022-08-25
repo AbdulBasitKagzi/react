@@ -8,9 +8,9 @@ function AvailableMeal() {
   const DUMMY_MEALS = [
     {
       id: "m1",
-      name: "Sushi",
-      description: "Finest fish and veggies",
-      price: 22.99,
+      name: "Biryani",
+      description: "Finest Chicken and Spices",
+      price: 99.09,
     },
     {
       id: "m2",
@@ -35,7 +35,7 @@ function AvailableMeal() {
   const listOfMeals = DUMMY_MEALS.map((meal) => (
     <MealItem key={meal.id} meal={meal} />
   ));
-  console.log(listOfMeals);
+
   return (
     <section className={classes.meals}>
       <Card>
