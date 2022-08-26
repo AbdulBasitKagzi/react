@@ -1,43 +1,23 @@
-import React from "react";
-import Model from "../UI/Model";
-import classes from "./CartItem.module.css";
-// import styles from "../Layout/HeaderCartButton.module.css";
+import classes from './CartItem.module.css';
 
-function CartItem(props) {
-  const CartItem = (
-    <ul className={classes["cart-items"]}>
-      {[
-        {
-          id: "m1",
-          name: "Biryani",
-          amount: "2",
-          price: 99.09,
-        },
-      ].map((item) => (
-        <li>{item.name}</li>
-      ))}
-    </ul>
-  );
+const CartItem = (props) => {
+  const price = `$${props.price.toFixed(2)}`;
+
   return (
-    <Model hideCartHandler={props.hideCartHandler}>
+    <li className={classes['cart-item']}>
       <div>
-        {CartItem}
-        <div className={classes.total}>
-          <span>Total Amount</span>
-          <span>199.09</span>
-        </div>
-        <div className={classes.actions}>
-          <button
-            className={classes["button--alt"]}
-            onClick={props.hideCartHandler}
-          >
-            Close
-          </button>
-          <button className={classes.button}>Order</button>
+        <h2>{props.name}</h2>
+        <div className={classes.summary}>
+          <span className={classes.price}>{price}</span>
+          <span className={classes.amount}>x {props.amount}</span>
         </div>
       </div>
-    </Model>
+      <div className={classes.actions}>
+        <button onClick={props.onRemove}>−</button>
+        <button onClick={props.onAdd}>+</button>
+      </div>
+    </li>
   );
-}
+};
 
 export default CartItem;
