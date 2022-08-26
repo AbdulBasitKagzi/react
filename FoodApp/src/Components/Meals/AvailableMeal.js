@@ -10,25 +10,25 @@ function AvailableMeal() {
       id: "m1",
       name: "Biryani",
       description: "Finest Chicken and Spices",
-      price: 99.09,
+      price: 100.00,
     },
     {
       id: "m2",
       name: "Schnitzel",
       description: "A german specialty!",
-      price: 16.5,
+      price: 200.00,
     },
     {
       id: "m3",
       name: "Barbecue Burger",
       description: "American, raw, meaty",
-      price: 12.99,
+      price: 65.00,
     },
     {
       id: "m4",
       name: "Green Bowl",
       description: "Healthy...and green...",
-      price: 18.99,
+      price: 500.00,
     },
   ];
 

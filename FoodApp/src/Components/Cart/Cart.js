@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CartContext from "../../store/cart-context";
 import Model from "../UI/Model";
-import CartItem from "./CartItem";
+import CartItem from './CartItem'
 import classes from "./Cart.module.css";
 // import styles from "../Layout/HeaderCartButton.module.css";
 
@@ -9,12 +9,16 @@ function Cart(props) {
   const ctx = useContext(CartContext);
 
   const isItemThere = ctx.items.length > 0;
-  const totalAmount = `${ctx.totalAmount.toFixed(2)}`;
+  const totalAmount = `${ctx.totalAmount.toFixed(2)} Rs`;
 
-  const addCartItemHandler = (item) => {};
-  const removeCartItemHandler = (id) => {};
+  const addCartItemHandler = (item) => {
+    ctx.addItem({...item, amount:1})
+  };
+  const removeCartItemHandler = (id) => {
+    ctx.removeItem(id)
+  };
 
-  const CartItem = (
+  const cartItem = (
     <ul className={classes["cart-items"]}>
       {ctx.items.map((item) => (
         <CartItem
@@ -31,7 +35,7 @@ function Cart(props) {
   return (
     <Model hideCartHandler={props.hideCartHandler}>
       <div>
-        {CartItem}
+        {cartItem}
         <div className={classes.total}>
           <span>Total Amount</span>
           <span>{totalAmount}</span>
