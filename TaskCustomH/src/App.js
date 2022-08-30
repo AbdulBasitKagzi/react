@@ -5,29 +5,30 @@ import NewTask from "./components/NewTask/NewTask";
 import useHTTP from "./components/hooks/use-http";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState(null);
-  const [tasks, setTasks] = useState([]);
+  // const [tasks, setTasks] = useState([]);
 
-  const transformTask = (taskObj) => {
-    const loadedTasks = [];
+  // const transformTask = (taskObj) => {
+  //   const loadedTasks = [];
 
-    for (const taskKey in taskObj) {
-      loadedTasks.push({ id: taskKey, text: taskObj[taskKey].text });
-    }
+  //   for (const taskKey in taskObj) {
+  //     loadedTasks.push({ id: taskKey, text: taskObj[taskKey].text });
+  //   }
 
-    setTasks(loadedTasks);
-  };
+  //   setTasks(loadedTasks);
+  // };
 
   const {
     isLoading,
     error,
     sendRequest: fetchTasks,
   } = useHTTP(
-    {
-      url: "https://add-task-5a18d-default-rtdb.firebaseio.com/tasks.json",
-    },
-    transformTask
+    // {
+    //   url: "https://add-task-5a18d-default-rtdb.firebaseio.com/tasks.json",
+    // },
+    // transformTask
   );
   // const fetchTasks = async (taskText) => {
   //   setIsLoading(true);
@@ -57,8 +58,22 @@ function App() {
   // };
 
   useEffect(() => {
-    fetchTasks();
-  }, []);
+    const transformTask = (taskObj) => {
+      const loadedTasks = [];
+
+      for (const taskKey in taskObj) {
+        loadedTasks.push({ id: taskKey, text: taskObj[taskKey].text });
+      }
+
+      setTasks(loadedTasks);
+    };
+    fetchTasks(
+      {
+        url: "https://add-task-5a18d-default-rtdb.firebaseio.com/tasks.json",
+      },
+      transformTask
+    );
+  }, [fetchTasks]);
 
   const taskAddHandler = (task) => {
     setTasks((prevTasks) => prevTasks.concat(task));
