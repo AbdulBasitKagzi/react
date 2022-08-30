@@ -1,0 +1,7 @@
+a {
+  color: aquamarine;
+}
+
+div a.active {
+  color: red;
+}
