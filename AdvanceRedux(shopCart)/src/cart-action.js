@@ -11,12 +11,12 @@ export const fetchCartData = () => {
         throw new Error("error");
       }
       const data = await response.json();
-      console.log(data);
+
       return data;
     };
     try {
       const cartData = await fetchData();
-      console.log(cartData);
+
       dispatch(cartActions.replaceCart(cartData));
     } catch (error) {
       dispatch(
